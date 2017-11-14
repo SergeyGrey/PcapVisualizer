@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapVisualizer.UI", "PcapVisualizer\PcapVisualizer.UI.csproj", "{FE701DD9-80DE-41E7-BE65-9ADA4F62F8EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapVisualizer.UI", "PcapVisualizer.UI\PcapVisualizer.UI.csproj", "{FE701DD9-80DE-41E7-BE65-9ADA4F62F8EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapVisualizer.Model", "PcapVisualizer.Model\PcapVisualizer.Model.csproj", "{EF94475F-3915-4859-BF90-4D6EEF577E02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapVisualizer.Presentation", "PcapVisualizer.Presentation\PcapVisualizer.Presentation.csproj", "{A3AC27BA-0E09-4D41-84A5-D342CEA154E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PcapVosualizer.Tests", "PcapVosualizer.Tests\PcapVosualizer.Tests.csproj", "{409BD0DC-7FFE-4285-BC54-A032A86745E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{FE701DD9-80DE-41E7-BE65-9ADA4F62F8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE701DD9-80DE-41E7-BE65-9ADA4F62F8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE701DD9-80DE-41E7-BE65-9ADA4F62F8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF94475F-3915-4859-BF90-4D6EEF577E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF94475F-3915-4859-BF90-4D6EEF577E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF94475F-3915-4859-BF90-4D6EEF577E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF94475F-3915-4859-BF90-4D6EEF577E02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3AC27BA-0E09-4D41-84A5-D342CEA154E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3AC27BA-0E09-4D41-84A5-D342CEA154E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3AC27BA-0E09-4D41-84A5-D342CEA154E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3AC27BA-0E09-4D41-84A5-D342CEA154E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409BD0DC-7FFE-4285-BC54-A032A86745E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409BD0DC-7FFE-4285-BC54-A032A86745E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409BD0DC-7FFE-4285-BC54-A032A86745E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409BD0DC-7FFE-4285-BC54-A032A86745E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
