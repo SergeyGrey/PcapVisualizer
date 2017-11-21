@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PcapVisualizer.Presentation;
 
 namespace PcapVisualizer.UI
 {
@@ -16,6 +17,10 @@ namespace PcapVisualizer.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            var form = new  PcapVisualizerForm();
+            var presenter = new VisualizerPresenter(form, new FilterParametersPresenter(form.ControlView));
+
             Application.Run(new PcapVisualizerForm());
         }
     }

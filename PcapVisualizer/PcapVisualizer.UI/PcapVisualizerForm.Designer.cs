@@ -28,9 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.visualizerLayout = new System.Windows.Forms.TableLayoutPanel();
             this.filterControl = new PcapVisualizer.FilterControl();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.filterResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.visualizerLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filterResultsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // visualizerLayout
@@ -38,6 +43,7 @@
             this.visualizerLayout.ColumnCount = 1;
             this.visualizerLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.visualizerLayout.Controls.Add(this.filterControl, 0, 0);
+            this.visualizerLayout.Controls.Add(this.dataGridView1, 0, 1);
             this.visualizerLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.visualizerLayout.Location = new System.Drawing.Point(0, 0);
             this.visualizerLayout.Name = "visualizerLayout";
@@ -59,6 +65,16 @@
             this.filterControl.Size = new System.Drawing.Size(812, 30);
             this.filterControl.TabIndex = 0;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 38);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(812, 120);
+            this.dataGridView1.TabIndex = 1;
+            // 
             // PcapVisualizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -69,6 +85,8 @@
             this.Name = "PcapVisualizerForm";
             this.Text = "PcapVisualizerForm";
             this.visualizerLayout.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filterResultsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -77,6 +95,8 @@
 
         private System.Windows.Forms.TableLayoutPanel visualizerLayout;
         private FilterControl filterControl;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource filterResultsBindingSource;
 
     }
 }

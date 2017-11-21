@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.selectProtocolComboBox = new System.Windows.Forms.ComboBox();
             this.selectprotocolLabel = new System.Windows.Forms.Label();
             this.pcapFilePathTextbox = new System.Windows.Forms.TextBox();
             this.pcapFilePathLabel = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.filterLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.filterParametersViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filterLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filterParametersViewModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // selectProtocolComboBox
@@ -115,6 +118,7 @@
             this.Size = new System.Drawing.Size(600, 30);
             this.filterLayout.ResumeLayout(false);
             this.filterLayout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.filterParametersViewModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,5 +131,6 @@
         private System.Windows.Forms.Label pcapFilePathLabel;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TableLayoutPanel filterLayout;
+        private System.Windows.Forms.BindingSource filterParametersViewModelBindingSource;
     }
 }
