@@ -7,7 +7,7 @@ using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Presentation
 {
-    public class PacketViewModel : Packet
+    public class PacketViewModel : MyPacket
     {
     }
 }

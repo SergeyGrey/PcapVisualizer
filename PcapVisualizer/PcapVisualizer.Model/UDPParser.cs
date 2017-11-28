@@ -8,5 +8,6 @@ namespace PcapVisualizer.Model
 {
     public class UDPParser : IProtocolParser
     {
+
     }
 }

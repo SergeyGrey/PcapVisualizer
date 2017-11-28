@@ -73,7 +73,7 @@
     <Compile Include="HTTPParser.cs" />
     <Compile Include="ICMPParser.cs" />
     <Compile Include="IProtocolParser.cs" />
-    <Compile Include="Packet.cs" />
+    <Compile Include="MyPacket.cs" />
     <Compile Include="PcapParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtocolState.cs" />
