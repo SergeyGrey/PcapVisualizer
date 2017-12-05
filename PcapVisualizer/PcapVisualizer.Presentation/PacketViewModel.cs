@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using PcapVisualizer.Model;
+﻿using PcapVisualizer.Model;
+using PcapVisualizer.Model.Packets;
 
 namespace PcapVisualizer.Presentation
 {
-    public class PacketViewModel : MyPacket
+    public class PacketViewModel : Packet
     {
     }
 }
