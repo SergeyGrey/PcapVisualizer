@@ -55,8 +55,8 @@ namespace PcapVisualizer.Model.Parsers
 
                                     // common fields
                                     myPacket.Protocol = "UDP";
-                                    myPacket.SenderAddress = ip.Source.ToString();
-                                    myPacket.SenderPort = udp.SourcePort.ToString();
+                                    myPacket.SourceAdress = ip.Source.ToString();
+                                    myPacket.SourcePort = udp.SourcePort.ToString();
                                     myPacket.DestinationAddress = ip.Destination.ToString();
                                     myPacket.DestinationPort = udp.DestinationPort.ToString();
                                     myPacket.TimeStamp = packet.Timestamp;
