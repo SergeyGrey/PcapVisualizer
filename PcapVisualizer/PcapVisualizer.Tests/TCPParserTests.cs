@@ -1,9 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Linq;
-using Castle.Components.DictionaryAdapter.Xml;
 using NUnit.Framework;
-using PcapVisualizer.Model;
 using PcapVisualizer.Model.Parsers;
 
 namespace PcapVisualizer.Tests
@@ -34,12 +31,8 @@ namespace PcapVisualizer.Tests
             Assert.That(result[0].TimeStamp.ToString("yyyy-MM-dd"), Is.EqualTo("2017-11-23"));
 
             // unusual
-            Assert.That(result[0].Length, Is.EqualTo(298));
-            Assert.That(result[0].Length, Is.EqualTo(298));
-            Assert.That(result[0].Length, Is.EqualTo(298));
-            Assert.That(result[0].Length, Is.EqualTo(298));
-
-
+            Assert.That(result[0].Header,
+                Is.Not.EqualTo( @"ControlBits : Push, Acknowledgment\nCheckSum : 41150\nNextPack\nNextPacketNumber : 3723115071\nHeaderLength : 20\nPayLoadLength : 244\nWindow : 59\n"));
 
             Assert.That(result.Count, Is.EqualTo(93));
         }

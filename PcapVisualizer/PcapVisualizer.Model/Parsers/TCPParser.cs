@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using PcapDotNet.Core;
 using PcapDotNet.Packets.IpV4;
 using PcapDotNet.Packets.Transport;
@@ -9,9 +11,9 @@ namespace PcapVisualizer.Model.Parsers
 {
     public class TcpParser : IProtocolParser
     {
-        public BindingList<Packet> ParsePcapFile(string path)
+        public List<Packet> ParsePcapFile(string path)
         {
-            BindingList<Packet> list = new BindingList<Packet>();
+            List<Packet> list = new List<Packet>();
 
             OfflinePacketDevice selectedDevice = new OfflinePacketDevice(path);
 
@@ -32,7 +34,7 @@ namespace PcapVisualizer.Model.Parsers
                     do
                     {
                         PcapDotNet.Packets.Packet packet;
-                        var myPacket = new TCPPacket();
+                        var myPacket = new Packet();
 
                         
                         PacketCommunicatorReceiveResult result = communicator.ReceivePacket(out packet);
@@ -62,14 +64,25 @@ namespace PcapVisualizer.Model.Parsers
                                 myPacket.TimeStamp = packet.Timestamp;
                                 myPacket.Length = packet.Length;
                                 myPacket.Data = packet.Buffer;
-                                
+
                                 // unusual fields
-                                myPacket.ControlBits = tcp.ControlBits;
-                                myPacket.TcpCheckSum = tcp.Checksum;
-                                myPacket.HeaderLength = tcp.HeaderLength;
-                                myPacket.NextPacketNumber = tcp.NextSequenceNumber;
-                                myPacket.PayLoadLength = tcp.PayloadLength;
-                                myPacket.Window = tcp.Window;
+
+                                StringBuilder properties = new StringBuilder();
+
+                                // флаги TCP Пакета
+                                properties.AppendLine("ControlBits : " + tcp.ControlBits.ToString());
+                                // Контрольная сумма
+                                properties.AppendLine("CheckSum : " + tcp.Checksum.ToString());
+                                // Число отвечающее за последовательность пакетов
+                                properties.AppendLine("NextPacketNumber : " + tcp.NextSequenceNumber.ToString());
+                                // Длинна заголовков
+                                properties.AppendLine("HeaderLength : " + tcp.HeaderLength.ToString());
+                                // Длина полезной загрузки
+                                properties.AppendLine("PayLoadLength : " + tcp.PayloadLength.ToString());
+                                // Количество октетов данных, которое отправитель этого сегмента готов принять.
+                                properties.AppendLine("Window : " + tcp.Window.ToString());
+                                
+                                myPacket.Header = properties.ToString();
 
                                 list.Add(myPacket);
 
