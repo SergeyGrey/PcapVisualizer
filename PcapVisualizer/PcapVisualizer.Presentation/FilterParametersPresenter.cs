@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Presentation
 {
     public class FilterParametersPresenter
     {
-        
         /// <summary>
         /// Конструктор представления
         /// </summary>
@@ -19,6 +19,7 @@ namespace PcapVisualizer.Presentation
 
             View.ViewModel = new FilterParametersViewModel();
         }
+
 
         /// <summary>
         /// Получает или задает вид параметров

@@ -11,6 +11,8 @@ namespace PcapVisualizer.Presentation
     {
         event EventHandler<FilterParameters> FilterChanged;
 
+        event EventHandler<string> FileChosen; 
+
         FilterParametersViewModel ViewModel { get; set; }
     }
 }

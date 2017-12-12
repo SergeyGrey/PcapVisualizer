@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PcapVisualizer.Presentation
@@ -14,7 +15,7 @@ namespace PcapVisualizer.Presentation
             ParametersPresenter = presenter;
 
             View.ViewModel = new ResultPacketsViewModel();
-            //ParametersPresenter.View.FilterChanged += View.ViewModel.Filter;
+            ParametersPresenter.View.FileChosen += View.ViewModel.Parse;
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace PcapVisualizer
+﻿namespace PcapVisualizer.UI
 {
     partial class FilterControl
     {
@@ -29,24 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.selectProtocolComboBox = new System.Windows.Forms.ComboBox();
             this.selectprotocolLabel = new System.Windows.Forms.Label();
             this.pcapFilePathTextbox = new System.Windows.Forms.TextBox();
             this.pcapFilePathLabel = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.filterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.filterParametersViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.smallComboBox1 = new PcapVisualizer.UI.SmallComboBox();
+            this._filterParametersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filterLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.filterParametersViewModelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._filterParametersBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // selectProtocolComboBox
-            // 
-            this.selectProtocolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.selectProtocolComboBox.Location = new System.Drawing.Point(483, 3);
-            this.selectProtocolComboBox.Name = "selectProtocolComboBox";
-            this.selectProtocolComboBox.Size = new System.Drawing.Size(114, 24);
-            this.selectProtocolComboBox.TabIndex = 0;
             // 
             // selectprotocolLabel
             // 
@@ -85,6 +77,7 @@
             this.browseButton.TabIndex = 3;
             this.browseButton.Text = "browse";
             this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // filterLayout
             // 
@@ -94,11 +87,11 @@
             this.filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.filterLayout.Controls.Add(this.selectProtocolComboBox, 4, 0);
             this.filterLayout.Controls.Add(this.browseButton, 2, 0);
             this.filterLayout.Controls.Add(this.pcapFilePathTextbox, 1, 0);
             this.filterLayout.Controls.Add(this.selectprotocolLabel, 3, 0);
             this.filterLayout.Controls.Add(this.pcapFilePathLabel, 0, 0);
+            this.filterLayout.Controls.Add(this.smallComboBox1, 4, 0);
             this.filterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterLayout.Location = new System.Drawing.Point(0, 0);
             this.filterLayout.Name = "filterLayout";
@@ -106,6 +99,20 @@
             this.filterLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.filterLayout.Size = new System.Drawing.Size(600, 30);
             this.filterLayout.TabIndex = 4;
+            // 
+            // smallComboBox1
+            // 
+            this.smallComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.smallComboBox1.FormattingEnabled = true;
+            this.smallComboBox1.Location = new System.Drawing.Point(483, 3);
+            this.smallComboBox1.MySelectedIndex = -1;
+            this.smallComboBox1.Name = "smallComboBox1";
+            this.smallComboBox1.Size = new System.Drawing.Size(114, 24);
+            this.smallComboBox1.TabIndex = 4;
+            // 
+            // _filterParametersBindingSource
+            // 
+            this._filterParametersBindingSource.DataSource = typeof(PcapVisualizer.Presentation.FilterParametersViewModel);
             // 
             // FilterControl
             // 
@@ -118,19 +125,19 @@
             this.Size = new System.Drawing.Size(600, 30);
             this.filterLayout.ResumeLayout(false);
             this.filterLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.filterParametersViewModelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._filterParametersBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox selectProtocolComboBox;
         private System.Windows.Forms.Label selectprotocolLabel;
         private System.Windows.Forms.TextBox pcapFilePathTextbox;
         private System.Windows.Forms.Label pcapFilePathLabel;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TableLayoutPanel filterLayout;
-        private System.Windows.Forms.BindingSource filterParametersViewModelBindingSource;
+        private SmallComboBox smallComboBox1;
+        private System.Windows.Forms.BindingSource _filterParametersBindingSource;
     }
 }

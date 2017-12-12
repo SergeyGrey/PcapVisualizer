@@ -7,8 +7,8 @@ namespace PcapVisualizer.Model.Packets
         public Packet(){}
         // пакет, который отображается в списке пакетов. У него будут поля, которые будут видны в качестве столбцов (протокол, время, адрес отправителя, адрес получателя, размер, мб еще что-то)
         // + !! два поля - свойства и данные, короче все как в вайршарке
-        public string SenderAddress { get; set; }
-        public string SenderPort { get; set; }
+        public string SourceAdress { get; set; }
+        public string SourcePort { get; set; }
         public string DestinationAddress { get; set; }
         public string DestinationPort { get; set; }
         public string Protocol { get; set; }
