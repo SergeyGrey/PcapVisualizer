@@ -17,7 +17,7 @@ namespace PcapVisualizer.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+
             var form = new  PcapVisualizerForm();
             var presenter = new VisualizerPresenter(form, new FilterParametersPresenter(form.ControlView));
 

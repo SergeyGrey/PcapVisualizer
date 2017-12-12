@@ -76,6 +76,9 @@
     <Compile Include="PcapVisualizerForm.Designer.cs">
       <DependentUpon>PcapVisualizerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SmallComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FilterControl.resx">
@@ -93,6 +96,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\PcapVisualizer.Presentation.FilterParametersViewModel.datasource" />
+    <None Include="Properties\DataSources\PcapVisualizer.Presentation.ResultPacketsViewModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

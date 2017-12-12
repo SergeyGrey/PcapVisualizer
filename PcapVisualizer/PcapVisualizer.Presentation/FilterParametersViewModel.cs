@@ -5,11 +5,29 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Presentation
 {
     public class FilterParametersViewModel : INotifyPropertyChanged
     {
+        private ProtocolState _selectedProtocolIndex;
+
+        public int SelectedProtocolState
+        {
+            get { return (int)_selectedProtocolIndex; }
+            set
+            {
+                _selectedProtocolIndex = (ProtocolState)value;
+                OnPropertyChanged();
+            }
+        }
+
+        public FilterParameters ToParameters()
+        {
+            return new FilterParameters{ SelectedProtocol = _selectedProtocolIndex };
+        }
+        
         /// <summary>
         /// Событие изменение данных модели
         /// </summary>

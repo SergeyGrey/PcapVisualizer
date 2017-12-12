@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using PcapVisualizer.Model;
 using PcapVisualizer.Presentation;
 
-namespace PcapVisualizer
+namespace PcapVisualizer.UI
 {
     public partial class FilterControl : UserControl, IFilterParametersView
     {
@@ -18,14 +18,36 @@ namespace PcapVisualizer
         /// </summary>
         public event EventHandler<FilterParameters> FilterChanged;
 
+        public event EventHandler<string> FileChosen;
+
         /// <summary>
         /// Получает или задает модель параметров
         /// </summary>
         [Browsable(false)]
         public FilterParametersViewModel ViewModel
         {
-            get { return (FilterParametersViewModel)filterParametersViewModelBindingSource.DataSource; }
-            set { filterParametersViewModelBindingSource.DataSource = value; }
+            get { return (FilterParametersViewModel)_filterParametersBindingSource.DataSource; }
+            set { _filterParametersBindingSource.DataSource = value; }
+        }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog {Filter = @"pcap file|*.pcap|all files|*"};
+
+            if (fileDialog.ShowDialog() != DialogResult.OK)
+                return;
+             
+            string filepath = fileDialog.FileName;
+
+            var handle = FileChosen;
+
+            if (handle != null)
+            {
+                MessageBox.Show("handled!");
+                handle(this, filepath);
+            }
+
+            MessageBox.Show("non handled!");
         }
     }
 }
