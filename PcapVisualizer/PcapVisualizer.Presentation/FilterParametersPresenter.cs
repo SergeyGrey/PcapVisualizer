@@ -20,7 +20,6 @@ namespace PcapVisualizer.Presentation
             View.ViewModel = new FilterParametersViewModel();
         }
 
-
         /// <summary>
         /// Получает или задает вид параметров
         /// </summary>

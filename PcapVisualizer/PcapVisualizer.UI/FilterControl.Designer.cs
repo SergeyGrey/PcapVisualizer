@@ -34,7 +34,7 @@
             this.pcapFilePathLabel = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.filterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.smallComboBox1 = new PcapVisualizer.UI.SmallComboBox();
+            this.protocolSelectionComboBox = new PcapVisualizer.UI.SmallComboBox();
             this._filterParametersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filterLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._filterParametersBindingSource)).BeginInit();
@@ -91,7 +91,7 @@
             this.filterLayout.Controls.Add(this.pcapFilePathTextbox, 1, 0);
             this.filterLayout.Controls.Add(this.selectprotocolLabel, 3, 0);
             this.filterLayout.Controls.Add(this.pcapFilePathLabel, 0, 0);
-            this.filterLayout.Controls.Add(this.smallComboBox1, 4, 0);
+            this.filterLayout.Controls.Add(this.protocolSelectionComboBox, 4, 0);
             this.filterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filterLayout.Location = new System.Drawing.Point(0, 0);
             this.filterLayout.Name = "filterLayout";
@@ -100,15 +100,22 @@
             this.filterLayout.Size = new System.Drawing.Size(600, 30);
             this.filterLayout.TabIndex = 4;
             // 
-            // smallComboBox1
+            // protocolSelectionComboBox
             // 
-            this.smallComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.smallComboBox1.FormattingEnabled = true;
-            this.smallComboBox1.Location = new System.Drawing.Point(483, 3);
-            this.smallComboBox1.MySelectedIndex = -1;
-            this.smallComboBox1.Name = "smallComboBox1";
-            this.smallComboBox1.Size = new System.Drawing.Size(114, 24);
-            this.smallComboBox1.TabIndex = 4;
+            this.protocolSelectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.protocolSelectionComboBox.FormattingEnabled = true;
+            this.protocolSelectionComboBox.Items.AddRange(new object[] {
+            "All",
+            "Ethernet",
+            "TCP",
+            "UDP",
+            "ICMP",
+            "HTTP"});
+            this.protocolSelectionComboBox.Location = new System.Drawing.Point(483, 3);
+            this.protocolSelectionComboBox.MySelectedIndex = 0;
+            this.protocolSelectionComboBox.Name = "protocolSelectionComboBox";
+            this.protocolSelectionComboBox.Size = new System.Drawing.Size(114, 24);
+            this.protocolSelectionComboBox.TabIndex = 4;
             // 
             // _filterParametersBindingSource
             // 
@@ -137,7 +144,7 @@
         private System.Windows.Forms.Label pcapFilePathLabel;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.TableLayoutPanel filterLayout;
-        private SmallComboBox smallComboBox1;
+        private SmallComboBox protocolSelectionComboBox;
         private System.Windows.Forms.BindingSource _filterParametersBindingSource;
     }
 }

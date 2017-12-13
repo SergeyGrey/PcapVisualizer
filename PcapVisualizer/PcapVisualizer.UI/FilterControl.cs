@@ -42,12 +42,7 @@ namespace PcapVisualizer.UI
             var handle = FileChosen;
 
             if (handle != null)
-            {
-                MessageBox.Show("handled!");
                 handle(this, filepath);
-            }
-
-            MessageBox.Show("non handled!");
         }
     }
 }

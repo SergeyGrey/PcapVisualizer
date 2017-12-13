@@ -4,7 +4,7 @@ using System.Text;
 using PcapDotNet.Core;
 using PcapDotNet.Packets.IpV4;
 using PcapDotNet.Packets.Transport;
-using PcapVisualizer.Model.Packets;
+using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Model.Parsers
 {

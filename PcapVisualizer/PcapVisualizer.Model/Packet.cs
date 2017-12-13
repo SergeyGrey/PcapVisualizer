@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PcapVisualizer.Model.Packets
+namespace PcapVisualizer.Model
 {
     public class Packet
     {

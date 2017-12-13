@@ -33,18 +33,18 @@ namespace PcapVisualizer.UI
             this.components = new System.ComponentModel.Container();
             this.visualizerLayout = new System.Windows.Forms.TableLayoutPanel();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.filterControl = new PcapVisualizer.UI.FilterControl();
             this.packegesDataGrid = new System.Windows.Forms.DataGridView();
             this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.filterControl = new PcapVisualizer.UI.FilterControl();
             this.sourceAdressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourcePortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.protocolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filterResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.visualizerLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.packegesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.packetsBindingSource)).BeginInit();
@@ -80,16 +80,6 @@ namespace PcapVisualizer.UI
             this.textBox2.Size = new System.Drawing.Size(876, 121);
             this.textBox2.TabIndex = 3;
             // 
-            // filterControl
-            // 
-            this.filterControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filterControl.Location = new System.Drawing.Point(3, 3);
-            this.filterControl.MaximumSize = new System.Drawing.Size(0, 30);
-            this.filterControl.MinimumSize = new System.Drawing.Size(300, 30);
-            this.filterControl.Name = "filterControl";
-            this.filterControl.Size = new System.Drawing.Size(876, 30);
-            this.filterControl.TabIndex = 0;
-            // 
             // packegesDataGrid
             // 
             this.packegesDataGrid.AllowUserToAddRows = false;
@@ -108,9 +98,13 @@ namespace PcapVisualizer.UI
             this.packegesDataGrid.DataSource = this.packetsBindingSource;
             this.packegesDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.packegesDataGrid.Location = new System.Drawing.Point(3, 38);
+            this.packegesDataGrid.MultiSelect = false;
             this.packegesDataGrid.Name = "packegesDataGrid";
             this.packegesDataGrid.ReadOnly = true;
+            this.packegesDataGrid.RowHeadersVisible = false;
             this.packegesDataGrid.RowTemplate.Height = 24;
+            this.packegesDataGrid.RowTemplate.ReadOnly = true;
+            this.packegesDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.packegesDataGrid.Size = new System.Drawing.Size(876, 120);
             this.packegesDataGrid.TabIndex = 1;
             // 
@@ -120,6 +114,31 @@ namespace PcapVisualizer.UI
             this.TimeStamp.HeaderText = "Time";
             this.TimeStamp.Name = "TimeStamp";
             this.TimeStamp.ReadOnly = true;
+            // 
+            // packetsBindingSource
+            // 
+            this.packetsBindingSource.DataMember = "Packets";
+            this.packetsBindingSource.DataSource = this.filterResultsBindingSource;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(3, 164);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(876, 120);
+            this.textBox1.TabIndex = 2;
+            // 
+            // filterControl
+            // 
+            this.filterControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filterControl.Location = new System.Drawing.Point(3, 3);
+            this.filterControl.MaximumSize = new System.Drawing.Size(0, 30);
+            this.filterControl.MinimumSize = new System.Drawing.Size(300, 30);
+            this.filterControl.Name = "filterControl";
+            this.filterControl.Size = new System.Drawing.Size(876, 30);
+            this.filterControl.TabIndex = 0;
             // 
             // sourceAdressDataGridViewTextBoxColumn
             // 
@@ -175,24 +194,9 @@ namespace PcapVisualizer.UI
             this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
             this.lengthDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // packetsBindingSource
-            // 
-            this.packetsBindingSource.DataMember = "Packets";
-            this.packetsBindingSource.DataSource = this.filterResultsBindingSource;
-            // 
             // filterResultsBindingSource
             // 
             this.filterResultsBindingSource.DataSource = typeof(PcapVisualizer.Presentation.ResultPacketsViewModel);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 164);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(876, 120);
-            this.textBox1.TabIndex = 2;
             // 
             // PcapVisualizerForm
             // 

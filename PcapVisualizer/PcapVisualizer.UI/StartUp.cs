@@ -21,7 +21,7 @@ namespace PcapVisualizer.UI
             var form = new  PcapVisualizerForm();
             var presenter = new VisualizerPresenter(form, new FilterParametersPresenter(form.ControlView));
 
-            Application.Run(new PcapVisualizerForm());
+            Application.Run(form);
         }
     }
 }

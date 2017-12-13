@@ -2,24 +2,29 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using PcapVisualizer.Model;
-using PcapVisualizer.Model.Packets;
 
 namespace PcapVisualizer.Presentation
 {
-    public class ResultPacketsViewModel
+    public class ResultPacketsViewModel : INotifyPropertyChanged
     {
         private List<Packet> _allPackets;
+        private BindingList<PacketViewModel> _packets;
 
         public ResultPacketsViewModel()
         {
             Packets = new BindingList<PacketViewModel>();
         }
 
-        public BindingList<PacketViewModel> Packets { get; set; }
+        public BindingList<PacketViewModel> Packets
+        {
+            get { return _packets; }
+            set { _packets = value; OnPropertyChanged(); }
+        }
 
         public void Filter(object obj, FilterParameters args)
         {
@@ -32,12 +37,14 @@ namespace PcapVisualizer.Presentation
             Packets = PacketToViewModelBindingList(_allPackets);
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private BindingList<Packet> ViewModelToPacketBindingList(BindingList<PacketViewModel> list)
         {
             BindingList<Packet> result = new BindingList<Packet>();
 
             foreach (var packet in list)
-                result.Add(packet.packet);
+                result.Add(packet.Packet);
 
             return result;
         }
@@ -46,10 +53,18 @@ namespace PcapVisualizer.Presentation
         {
             BindingList<PacketViewModel> result = new BindingList<PacketViewModel>();
 
-            foreach (var student in list)
-                result.Add(new PacketViewModel(student));
+            foreach (var packet in list)
+                result.Add(new PacketViewModel(packet));
 
             return result;
+        }
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+
+            if (handler != null)
+                handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

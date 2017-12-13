@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using PcapVisualizer.Model.Packets;
+using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Model.Parsers
 {

@@ -12,10 +12,10 @@ namespace PcapVisualizer.Presentation
         public VisualizerPresenter(IVisualizerView view, FilterParametersPresenter presenter)
         {
             View = view;
-            ParametersPresenter = presenter;
+            FilterParametersPresenter = presenter;
 
             View.ViewModel = new ResultPacketsViewModel();
-            ParametersPresenter.View.FileChosen += View.ViewModel.Parse;
+            FilterParametersPresenter.View.FileChosen += View.ViewModel.Parse;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace PcapVisualizer.Presentation
         /// <summary>
         /// Получает или задает представление управления фильтром
         /// </summary>
-        public FilterParametersPresenter ParametersPresenter { get; set; }
+        public FilterParametersPresenter FilterParametersPresenter { get; set; }
 
         /// <summary>
         /// Инициализирует модель представления

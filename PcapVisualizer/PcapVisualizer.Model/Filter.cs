@@ -10,7 +10,7 @@ namespace PcapVisualizer.Model
 {
     public static class Filter
     {
-        public static List<Model.Packets.Packet> DoFilter(List<Model.Packets.Packet> packets, FilterParameters parameters)
+        public static List<Model.Packet> DoFilter(List<Model.Packet> packets, FilterParameters parameters)
         {
             if (parameters.SelectedProtocol == ProtocolState.All)
                 return packets;
