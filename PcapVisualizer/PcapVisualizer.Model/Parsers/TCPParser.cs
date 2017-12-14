@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text;
 using PcapDotNet.Core;
 using PcapDotNet.Packets.IpV4;
 using PcapDotNet.Packets.Transport;
-using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Model.Parsers
 {
@@ -24,7 +22,7 @@ namespace PcapVisualizer.Model.Parsers
                     1000)) // время чтения
             {
                 // Установка фильтра на TCP Пакеты
-                using (var filter = communicator.CreateFilter("tcp"))
+                using (var filter = communicator.CreateFilter("ip and tcp"))
                 {
                     communicator.SetFilter(filter);
 
