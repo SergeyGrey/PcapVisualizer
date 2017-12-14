@@ -4,7 +4,6 @@ using System.Text;
 using PcapDotNet.Core;
 using PcapDotNet.Packets.IpV4;
 using PcapDotNet.Packets.Transport;
-using PcapVisualizer.Model;
 
 namespace PcapVisualizer.Model.Parsers
 {
@@ -23,7 +22,7 @@ namespace PcapVisualizer.Model.Parsers
                     1000)) // время чтения
             {
                 // Установка фильтра на udp Пакеты
-                using (var filter = communicator.CreateFilter("udp"))
+                using (var filter = communicator.CreateFilter("ip and udp"))
                 {
                     communicator.SetFilter(filter);
 
@@ -71,11 +70,6 @@ namespace PcapVisualizer.Model.Parsers
                                     properties.AppendLine("Checksum : " + udp.Checksum.ToString());
                                     // Длинна(число байт) udp пакета
                                     properties.AppendLine("PacketLength : " + udp.TotalLength.ToString());
-                                    // Длинна(число байт) udp пакета
-                                    properties.AppendLine("PacketLength : " + udp.TotalLength.ToString());
-                                    
-
-                                    myPacket.Header = properties.ToString();
 
                                     list.Add(myPacket);
 
