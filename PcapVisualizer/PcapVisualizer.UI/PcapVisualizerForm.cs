@@ -31,8 +31,8 @@ namespace PcapVisualizer.UI
         [Browsable(false)]
         public ResultPacketsViewModel ViewModel
         {
-            get { return (ResultPacketsViewModel)filterResultsBindingSource.DataSource; }
-            set { filterResultsBindingSource.DataSource = value; }
+            get { return (ResultPacketsViewModel)_filterResultsBindingSource.DataSource; }
+            set { _filterResultsBindingSource.DataSource = value; }
         }
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace PcapVisualizer.UI
         /// </summary>
         private void CustomInitializeComponent()
         {
-            ControlView = filterControl;
-            packetsDataGrid.SelectionChanged += SetHeaderAndData;
+            ControlView = _filterControl;
+            _packetsDataGrid.SelectionChanged += SetHeaderAndData;
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace PcapVisualizer.UI
         /// <param name="args">не испоьзуется</param>
         private void SetHeaderAndData(object obj, EventArgs args)
         {
-            if (packetsDataGrid.CurrentRow == null)
+            if (_packetsDataGrid.CurrentRow == null)
                 return;
 
-            ViewModel.UpdateHeaderAndData(new SelectedItemInList(){ ItemPosition = packetsDataGrid.CurrentRow.Index });
+            ViewModel.UpdateHeaderAndData(new SelectedItemInList(){ ItemPosition = _packetsDataGrid.CurrentRow.Index });
         }
     }
 }

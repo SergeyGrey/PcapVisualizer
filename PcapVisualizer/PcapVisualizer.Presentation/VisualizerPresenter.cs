@@ -23,8 +23,9 @@ namespace PcapVisualizer.Presentation
 
             View.ViewModel = new ResultPacketsViewModel();
 
-            FilterParametersPresenter.View.PacketChosen += View.ControlView.ViewModel.ResetProtocol;
-            FilterParametersPresenter.View.PacketChosen += View.ViewModel.Parse;
+            FilterParametersPresenter.View.FileChosen += View.ControlView.ViewModel.ResetProtocol;
+            FilterParametersPresenter.View.FileChosen += View.ViewModel.Parse;
+            FilterParametersPresenter.View.FileChosen += View.ControlView.ViewModel.SetSelectedFile;
             FilterParametersPresenter.View.ViewModel.FilterChanged += View.ViewModel.Filter;
         }
 

@@ -39,6 +39,11 @@ namespace PcapVisualizer.Presentation
             Packets = new BindingList<PacketViewModel>();
         }
 
+        /// <summary>
+        /// Событие изменения значений свойств
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string CurrentHeader
         {
             get { return _currentHeader; }
@@ -79,10 +84,10 @@ namespace PcapVisualizer.Presentation
         }
 
         /// <summary>
-        /// Событие изменения значений свойств
+        /// Функция - преобразователь
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        /// <param name="list">Список пакетов</param>
+        /// <returns>Список пакетов в другой форме</returns>
         private BindingList<PacketViewModel> PacketToViewModelBindingList(List<Packet> list)
         {
             BindingList<PacketViewModel> result = new BindingList<PacketViewModel>();

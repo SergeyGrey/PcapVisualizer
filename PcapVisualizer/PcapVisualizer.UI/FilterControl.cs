@@ -16,7 +16,7 @@ namespace PcapVisualizer.UI
         /// <summary>
         /// Союытие выбора пакета
         /// </summary>
-        public event EventHandler<string> PacketChosen;
+        public event EventHandler<string> FileChosen;
 
         /// <summary>
         /// Получает или задает модель параметров
@@ -42,7 +42,7 @@ namespace PcapVisualizer.UI
              
             string filepath = fileDialog.FileName;
 
-            var handle = PacketChosen;
+            var handle = FileChosen;
 
             if (handle != null)
                 handle(this, filepath);

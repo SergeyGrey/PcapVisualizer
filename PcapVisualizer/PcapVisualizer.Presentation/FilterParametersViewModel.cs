@@ -19,6 +19,21 @@ namespace PcapVisualizer.Presentation
         private ProtocolState _selectedProtocolIndex;
 
         /// <summary>
+        /// Поле пути к выбранному файлу
+        /// </summary>
+        private string _selectedFile;
+
+        /// <summary>
+        /// Событие изменение данных модели
+        /// </summary>
+        public event EventHandler<FilterParameters> FilterChanged;
+
+        /// <summary>
+        /// Событие изменения значения свойств
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
         /// Свойство выбранного отображаемого протокола
         /// </summary>
         public int SelectedProtocolState
@@ -33,6 +48,15 @@ namespace PcapVisualizer.Presentation
         }
 
         /// <summary>
+        /// Свойство отображаемого пути к выбранному файлу
+        /// </summary>
+        public string SelectedFile
+        {
+            get { return _selectedFile; }
+            set { _selectedFile = value; OnPropertyChanged(); }
+        }
+
+        /// <summary>
         /// Ставит выбранный протокол на позицию по умолчанию
         /// </summary>
         /// <param name="obj"></param>
@@ -40,6 +64,16 @@ namespace PcapVisualizer.Presentation
         public void ResetProtocol(object obj, string filepath)
         {
             SelectedProtocolState = 0;
+        }
+
+        /// <summary>
+        /// Задает название выбранного файла
+        /// </summary>
+        /// <param name="ogj">не используется</param>
+        /// <param name="filepath">путь к выбранному файлу</param>
+        public void SetSelectedFile(object ogj, string filepath)
+        {
+            SelectedFile = filepath;
         }
 
         /// <summary>
@@ -52,11 +86,6 @@ namespace PcapVisualizer.Presentation
         }
         
         /// <summary>
-        /// Событие изменение данных модели
-        /// </summary>
-        public event EventHandler<FilterParameters> FilterChanged;
-
-        /// <summary>
         /// Обработка наступления события изменения данных модели
         /// </summary>
         /// <param name="propertyName">Имя параметра</param>
@@ -67,11 +96,6 @@ namespace PcapVisualizer.Presentation
             if (handler != null)
                 handler(this, ToParameters());
         }
-
-        /// <summary>
-        /// Событие изменения значения свойств
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Вызов обработчика события изменения значения свойств

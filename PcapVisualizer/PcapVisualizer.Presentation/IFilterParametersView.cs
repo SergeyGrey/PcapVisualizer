@@ -14,7 +14,7 @@ namespace PcapVisualizer.Presentation
         /// <summary>
         /// Событие совершения выбора обрабатываемого файла
         /// </summary>
-        event EventHandler<string> PacketChosen;
+        event EventHandler<string> FileChosen;
 
         /// <summary>
         /// Модель вида
