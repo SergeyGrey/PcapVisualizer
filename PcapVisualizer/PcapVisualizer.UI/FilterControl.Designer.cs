@@ -34,8 +34,8 @@
             this.pcapFilePathLabel = new System.Windows.Forms.Label();
             this.browseButton = new System.Windows.Forms.Button();
             this.filterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.protocolSelectionComboBox = new PcapVisualizer.UI.SmallComboBox();
             this._filterParametersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.protocolSelectionComboBox = new PcapVisualizer.UI.SmallComboBox();
             this.filterLayout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._filterParametersBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -100,8 +100,13 @@
             this.filterLayout.Size = new System.Drawing.Size(600, 30);
             this.filterLayout.TabIndex = 4;
             // 
+            // _filterParametersBindingSource
+            // 
+            this._filterParametersBindingSource.DataSource = typeof(PcapVisualizer.Presentation.FilterParametersViewModel);
+            // 
             // protocolSelectionComboBox
             // 
+            this.protocolSelectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("MySelectedIndex", this._filterParametersBindingSource, "SelectedProtocolState", true));
             this.protocolSelectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.protocolSelectionComboBox.FormattingEnabled = true;
             this.protocolSelectionComboBox.Items.AddRange(new object[] {
@@ -116,10 +121,6 @@
             this.protocolSelectionComboBox.Name = "protocolSelectionComboBox";
             this.protocolSelectionComboBox.Size = new System.Drawing.Size(114, 24);
             this.protocolSelectionComboBox.TabIndex = 4;
-            // 
-            // _filterParametersBindingSource
-            // 
-            this._filterParametersBindingSource.DataSource = typeof(PcapVisualizer.Presentation.FilterParametersViewModel);
             // 
             // FilterControl
             // 
