@@ -7,7 +7,7 @@ using PcapDotNet.Packets.Transport;
 
 namespace PcapVisualizer.Model.Parsers
 {
-    public class HttpParser : IProtocolParser
+    public class HTTPParser : IProtocolParser
     {
         public List<Packet> ParsePcapFile(string path)
         {
@@ -74,15 +74,15 @@ namespace PcapVisualizer.Model.Parsers
                                     StringBuilder properties = new StringBuilder();
 
                                     // Длинна заголовков
-                                    properties.AppendLine("HeaderLength : " + httpHeader.BytesLength.ToString());
+                                   // properties.AppendLine("HeaderLength : " + httpHeader.BytesLength.ToString());
                                     // Длинна контента
-                                    properties.AppendLine("ContentLength : " + httpHeader.ContentLength);
+                                  //  properties.AppendLine("ContentLength : " + httpHeader.ContentLength);
                                     // Тип контента
-                                    properties.AppendLine("ContentType : " + httpHeader.ContentType);
+                                 //   properties.AppendLine("ContentType : " + httpHeader.ContentType);
                                     // Поле передачи
-                                    properties.AppendLine("ContentType : " + httpHeader.Trailer.ValueString);
+                                  //  properties.AppendLine("ContentType : " + httpHeader.Trailer.ValueString);
                                     // Шифрование
-                                    properties.AppendLine("TransferEncoding : " + httpHeader.TransferEncoding.ValueString);
+                                  //  properties.AppendLine("TransferEncoding : " + httpHeader.TransferEncoding.ValueString);
 
                                     if (http.IsRequest && http.IsValid)
                                     {

@@ -7,7 +7,7 @@ using PcapDotNet.Packets.Transport;
 
 namespace PcapVisualizer.Model.Parsers
 {
-    public class UdpParser : IProtocolParser
+    public class UDPParser : IProtocolParser
     {
         public List<Packet> ParsePcapFile(string path)
         {
@@ -70,6 +70,8 @@ namespace PcapVisualizer.Model.Parsers
                                     properties.AppendLine("Checksum : " + udp.Checksum.ToString());
                                     // Длинна(число байт) udp пакета
                                     properties.AppendLine("PacketLength : " + udp.TotalLength.ToString());
+
+                                    myPacket.Header = properties.ToString();
 
                                     list.Add(myPacket);
 

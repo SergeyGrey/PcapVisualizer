@@ -68,6 +68,7 @@
     <Compile Include="EthernetParserTests.cs" />
     <Compile Include="HTTPParserTests.cs" />
     <Compile Include="ICMPParserTests.cs" />
+    <Compile Include="ParsePcapFileTest.cs" />
     <Compile Include="TCPParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UDPParserTests.cs" />

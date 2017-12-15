@@ -28,7 +28,7 @@ namespace PcapVisualizer.Presentation
 
         public void Parse(object ogj, string filepath)
         {
-            _allPackets = Model.Parsers.PcapParser.ParsePcapFile(filepath);
+            _allPackets = PcapParser.ParsePcapFile(filepath);
             Packets = PacketToViewModelBindingList(_allPackets);
         }
 

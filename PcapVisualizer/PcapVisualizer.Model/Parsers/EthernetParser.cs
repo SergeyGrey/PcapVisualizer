@@ -21,7 +21,12 @@ namespace PcapVisualizer.Model.Parsers
                 selectedDevice.Open(65536, // считает полностью весь пакет 65536 max size of packet
                     PacketDeviceOpenAttributes.Promiscuous, // какие - то непонятные флаги)
                     1000)) // время чтения
-              {
+            {
+
+                using (var filter = communicator.CreateFilter("ether broadcast"))
+                {
+                    communicator.SetFilter(filter);
+
                     bool endOfFile = false;
 
                     // разираем полученные пакеты по одному
@@ -35,59 +40,60 @@ namespace PcapVisualizer.Model.Parsers
                         switch (result)
                         {
                             case PacketCommunicatorReceiveResult.Eof:
-                                {
-                                    endOfFile = true;
-                                    break;
-                                }
+                            {
+                                endOfFile = true;
+                                break;
+                            }
 
                             case PacketCommunicatorReceiveResult.Timeout:
                                 break; // Timeout
 
                             case PacketCommunicatorReceiveResult.Ok:
                             {
-                                if (packet.IpV4.Protocol != IpV4Protocol.EtherIp)
-                                    continue;
+                                //if (packet.IpV4.Protocol != IpV4Protocol.EtherIp)
+                                //    continue;
 
-                                    IpV4Datagram ip = packet.Ethernet.IpV4;
-                                    TcpDatagram tcp = ip.Tcp;
-                                    EthernetDatagram  ethernet = packet.Ethernet;
+                                IpV4Datagram ip = packet.Ethernet.IpV4;
+                                TcpDatagram tcp = ip.Tcp;
+                                EthernetDatagram ethernet = packet.Ethernet;
 
-                                    // common fields
-                                    myPacket.Protocol = "ETHERNET";
-                                    myPacket.SourceAdress = ip.Source.ToString();
-                                    myPacket.SourcePort = tcp.SourcePort.ToString();
-                                    myPacket.DestinationAddress = ip.Destination.ToString();
-                                    myPacket.DestinationPort = tcp.DestinationPort.ToString();
-                                    myPacket.TimeStamp = packet.Timestamp;
-                                    myPacket.Length = packet.Length;
-                                    myPacket.Data = packet.Buffer;
+                                // common fields
+                                myPacket.Protocol = "ETHERNET";
+                                myPacket.SourceAdress = ip.Source.ToString();
+                                myPacket.SourcePort = tcp.SourcePort.ToString();
+                                myPacket.DestinationAddress = ip.Destination.ToString();
+                                myPacket.DestinationPort = tcp.DestinationPort.ToString();
+                                myPacket.TimeStamp = packet.Timestamp;
+                                myPacket.Length = packet.Length;
+                                myPacket.Data = packet.Buffer;
 
-                                    // unusual fields
+                                // unusual fields
 
-                                    StringBuilder properties = new StringBuilder();
+                                StringBuilder properties = new StringBuilder();
 
-                                    // MAC адресс получателя
-                                    properties.AppendLine("MAC adress of destination : " + ethernet.Destination.ToString());
-                                    // 
-                                    properties.AppendLine("EtherType : " + ethernet.EtherType.ToString());
-                                    // Длинна заголовков
-                                    properties.AppendLine("HeaderLength : " + ethernet.HeaderLength.ToString());
-                                    // Длинна полезной загрузки
-                                    properties.AppendLine("PayloadLength : " + ethernet.PayloadLength.ToString());
-                                    // MAC адресс отправителя
-                                    properties.AppendLine("Source Mac adress : " + ethernet.Source.ToString());
+                                // MAC адресс получателя
+                                properties.AppendLine("MAC adress of destination : " + ethernet.Destination.ToString());
+                                // 
+                                properties.AppendLine("EtherType : " + ethernet.EtherType.ToString());
+                                // Длинна заголовков
+                                properties.AppendLine("HeaderLength : " + ethernet.HeaderLength.ToString());
+                                // Длинна полезной загрузки
+                                properties.AppendLine("PayloadLength : " + ethernet.PayloadLength.ToString());
+                                // MAC адресс отправителя
+                                properties.AppendLine("Source Mac adress : " + ethernet.Source.ToString());
 
-                                    myPacket.Header = properties.ToString();
+                                myPacket.Header = properties.ToString();
 
-                                    list.Add(myPacket);
+                                list.Add(myPacket);
 
-                                    continue;
-                                }
+                                continue;
+                            }
                             default:
                                 throw new InvalidOperationException("The result " + result +
                                                                     " shoudl never be reached here");
                         }
                     } while (!endOfFile);
+                }
             }
 
             return list;

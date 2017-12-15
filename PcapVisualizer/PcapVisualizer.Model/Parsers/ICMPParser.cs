@@ -7,7 +7,7 @@ using PcapDotNet.Packets.IpV4;
 
 namespace PcapVisualizer.Model.Parsers
 {
-    public class IcmpParser : IProtocolParser
+    public class ICMPParser : IProtocolParser
     {
         public List<Packet> ParsePcapFile(string path)
         {
@@ -73,6 +73,8 @@ namespace PcapVisualizer.Model.Parsers
                                     properties.AppendLine("MessageTypeAndCode : " + icmp.MessageTypeAndCode.ToString());
                                     // Специальное значение передаваемое пакетом 
                                     properties.AppendLine("Variable : " + icmp.Variable.ToString());
+
+                                    myPacket.Header = properties.ToString();
 
                                     list.Add(myPacket);
 

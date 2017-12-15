@@ -92,7 +92,7 @@
     <Compile Include="Parsers\ICMPParser.cs" />
     <Compile Include="Parsers\IProtocolParser.cs" />
     <Compile Include="Packet.cs" />
-    <Compile Include="Parsers\PcapParser.cs" />
+    <Compile Include="PcapParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProtocolState.cs" />
     <Compile Include="Parsers\TCPParser.cs" />
