@@ -31,10 +31,11 @@ namespace PcapVisualizer.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this._visualizerLayout = new System.Windows.Forms.TableLayoutPanel();
             this._dataTextBox = new System.Windows.Forms.TextBox();
             this._filterResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._filterControl = new PcapVisualizer.UI.FilterControl();
+            this._filterControl = new FilterControl();
             this._packetsDataGrid = new System.Windows.Forms.DataGridView();
             this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourceAdressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +73,10 @@ namespace PcapVisualizer.UI
             // 
             // _dataTextBox
             // 
+            this._dataTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this._dataTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._filterResultsBindingSource, "CurrentData", true));
             this._dataTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._dataTextBox.Location = new System.Drawing.Point(3, 290);
             this._dataTextBox.Multiline = true;
             this._dataTextBox.Name = "_dataTextBox";
@@ -84,10 +87,11 @@ namespace PcapVisualizer.UI
             // 
             // _filterResultsBindingSource
             // 
-            this._filterResultsBindingSource.DataSource = typeof(PcapVisualizer.Presentation.ResultPacketsViewModel);
+            this._filterResultsBindingSource.DataSource = typeof(ResultPacketsViewModel);
             // 
             // _filterControl
             // 
+            this._filterControl.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this._filterControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this._filterControl.Location = new System.Drawing.Point(3, 3);
             this._filterControl.MaximumSize = new System.Drawing.Size(0, 30);
@@ -114,10 +118,19 @@ namespace PcapVisualizer.UI
             this._packetsDataGrid.DataSource = this._packetsBindingSource;
             this._packetsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this._packetsDataGrid.EnableHeadersVisualStyles = false;
+            this._packetsDataGrid.GridColor = System.Drawing.SystemColors.MenuHighlight;
             this._packetsDataGrid.Location = new System.Drawing.Point(3, 38);
             this._packetsDataGrid.MultiSelect = false;
             this._packetsDataGrid.Name = "_packetsDataGrid";
             this._packetsDataGrid.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this._packetsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this._packetsDataGrid.RowHeadersVisible = false;
             this._packetsDataGrid.RowTemplate.Height = 24;
             this._packetsDataGrid.RowTemplate.ReadOnly = true;
@@ -193,8 +206,10 @@ namespace PcapVisualizer.UI
             // 
             // _headerTextBox
             // 
+            this._headerTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this._headerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._filterResultsBindingSource, "CurrentHeader", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this._headerTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._headerTextBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this._headerTextBox.Location = new System.Drawing.Point(3, 164);
             this._headerTextBox.Multiline = true;
             this._headerTextBox.Name = "_headerTextBox";
@@ -207,6 +222,7 @@ namespace PcapVisualizer.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(882, 414);
             this.Controls.Add(this._visualizerLayout);
             this.MinimumSize = new System.Drawing.Size(900, 400);

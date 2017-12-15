@@ -92,7 +92,7 @@ namespace PcapVisualizer.Presentation
                 if (bytePosition % 16 == 15)
                     result.Append("\r\n");
                 else if(bytePosition % 8 == 7)
-                    result.Append("\t");
+                    result.Append("    ");
                 else
                     result.Append(" ");
 
