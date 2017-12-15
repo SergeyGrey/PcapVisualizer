@@ -14,10 +14,8 @@ namespace PcapVisualizer.UI
         }
 
         /// <summary>
-        /// Событие изменение данных модели
+        /// Союытие выбора пакета
         /// </summary>
-        public event EventHandler<FilterParameters> FilterChanged;
-
         public event EventHandler<string> FileChosen;
 
         /// <summary>
@@ -30,6 +28,11 @@ namespace PcapVisualizer.UI
             set { _filterParametersBindingSource.DataSource = value; }
         }
 
+        /// <summary>
+        /// Обработка нажатия на кнопку выбора файла
+        /// </summary>
+        /// <param name="sender">не используется</param>
+        /// <param name="e">не используется</param>
         private void browseButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog {Filter = @"pcap file|*.pcap|all files|*"};

@@ -31,63 +31,79 @@ namespace PcapVisualizer.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.visualizerLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.packegesDataGrid = new System.Windows.Forms.DataGridView();
+            this._visualizerLayout = new System.Windows.Forms.TableLayoutPanel();
+            this._dataTextBox = new System.Windows.Forms.TextBox();
+            this._filterResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._filterControl = new PcapVisualizer.UI.FilterControl();
+            this._packetsDataGrid = new System.Windows.Forms.DataGridView();
             this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.filterControl = new PcapVisualizer.UI.FilterControl();
             this.sourceAdressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourcePortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.protocolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationPortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.filterResultsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.visualizerLayout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.packegesDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packetsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filterResultsBindingSource)).BeginInit();
+            this._packetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._headerTextBox = new System.Windows.Forms.TextBox();
+            this._visualizerLayout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._filterResultsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._packetsDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._packetsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // visualizerLayout
+            // _visualizerLayout
             // 
-            this.visualizerLayout.ColumnCount = 1;
-            this.visualizerLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.visualizerLayout.Controls.Add(this.textBox2, 0, 3);
-            this.visualizerLayout.Controls.Add(this.filterControl, 0, 0);
-            this.visualizerLayout.Controls.Add(this.packegesDataGrid, 0, 1);
-            this.visualizerLayout.Controls.Add(this.textBox1, 0, 2);
-            this.visualizerLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.visualizerLayout.Location = new System.Drawing.Point(0, 0);
-            this.visualizerLayout.Name = "visualizerLayout";
-            this.visualizerLayout.RowCount = 4;
-            this.visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.visualizerLayout.Size = new System.Drawing.Size(882, 414);
-            this.visualizerLayout.TabIndex = 0;
+            this._visualizerLayout.ColumnCount = 1;
+            this._visualizerLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this._visualizerLayout.Controls.Add(this._dataTextBox, 0, 3);
+            this._visualizerLayout.Controls.Add(this._filterControl, 0, 0);
+            this._visualizerLayout.Controls.Add(this._packetsDataGrid, 0, 1);
+            this._visualizerLayout.Controls.Add(this._headerTextBox, 0, 2);
+            this._visualizerLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._visualizerLayout.Location = new System.Drawing.Point(0, 0);
+            this._visualizerLayout.Name = "_visualizerLayout";
+            this._visualizerLayout.RowCount = 4;
+            this._visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this._visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this._visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this._visualizerLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this._visualizerLayout.Size = new System.Drawing.Size(882, 414);
+            this._visualizerLayout.TabIndex = 0;
             // 
-            // textBox2
+            // _dataTextBox
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(3, 290);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(876, 121);
-            this.textBox2.TabIndex = 3;
+            this._dataTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._filterResultsBindingSource, "CurrentData", true));
+            this._dataTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._dataTextBox.Location = new System.Drawing.Point(3, 290);
+            this._dataTextBox.Multiline = true;
+            this._dataTextBox.Name = "_dataTextBox";
+            this._dataTextBox.ReadOnly = true;
+            this._dataTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._dataTextBox.Size = new System.Drawing.Size(876, 121);
+            this._dataTextBox.TabIndex = 3;
             // 
-            // packegesDataGrid
+            // _filterResultsBindingSource
             // 
-            this.packegesDataGrid.AllowUserToAddRows = false;
-            this.packegesDataGrid.AllowUserToDeleteRows = false;
-            this.packegesDataGrid.AutoGenerateColumns = false;
-            this.packegesDataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.packegesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.packegesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._filterResultsBindingSource.DataSource = typeof(PcapVisualizer.Presentation.ResultPacketsViewModel);
+            // 
+            // _filterControl
+            // 
+            this._filterControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._filterControl.Location = new System.Drawing.Point(3, 3);
+            this._filterControl.MaximumSize = new System.Drawing.Size(0, 30);
+            this._filterControl.MinimumSize = new System.Drawing.Size(300, 30);
+            this._filterControl.Name = "_filterControl";
+            this._filterControl.Size = new System.Drawing.Size(876, 30);
+            this._filterControl.TabIndex = 0;
+            // 
+            // _packetsDataGrid
+            // 
+            this._packetsDataGrid.AllowUserToAddRows = false;
+            this._packetsDataGrid.AllowUserToDeleteRows = false;
+            this._packetsDataGrid.AutoGenerateColumns = false;
+            this._packetsDataGrid.BackgroundColor = System.Drawing.Color.White;
+            this._packetsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._packetsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TimeStamp,
             this.sourceAdressDataGridViewTextBoxColumn,
             this.sourcePortDataGridViewTextBoxColumn,
@@ -95,18 +111,19 @@ namespace PcapVisualizer.UI
             this.destinationAddressDataGridViewTextBoxColumn,
             this.destinationPortDataGridViewTextBoxColumn,
             this.lengthDataGridViewTextBoxColumn});
-            this.packegesDataGrid.DataSource = this.packetsBindingSource;
-            this.packegesDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.packegesDataGrid.Location = new System.Drawing.Point(3, 38);
-            this.packegesDataGrid.MultiSelect = false;
-            this.packegesDataGrid.Name = "packegesDataGrid";
-            this.packegesDataGrid.ReadOnly = true;
-            this.packegesDataGrid.RowHeadersVisible = false;
-            this.packegesDataGrid.RowTemplate.Height = 24;
-            this.packegesDataGrid.RowTemplate.ReadOnly = true;
-            this.packegesDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.packegesDataGrid.Size = new System.Drawing.Size(876, 120);
-            this.packegesDataGrid.TabIndex = 1;
+            this._packetsDataGrid.DataSource = this._packetsBindingSource;
+            this._packetsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._packetsDataGrid.EnableHeadersVisualStyles = false;
+            this._packetsDataGrid.Location = new System.Drawing.Point(3, 38);
+            this._packetsDataGrid.MultiSelect = false;
+            this._packetsDataGrid.Name = "_packetsDataGrid";
+            this._packetsDataGrid.ReadOnly = true;
+            this._packetsDataGrid.RowHeadersVisible = false;
+            this._packetsDataGrid.RowTemplate.Height = 24;
+            this._packetsDataGrid.RowTemplate.ReadOnly = true;
+            this._packetsDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this._packetsDataGrid.Size = new System.Drawing.Size(876, 120);
+            this._packetsDataGrid.TabIndex = 1;
             // 
             // TimeStamp
             // 
@@ -114,31 +131,6 @@ namespace PcapVisualizer.UI
             this.TimeStamp.HeaderText = "Time";
             this.TimeStamp.Name = "TimeStamp";
             this.TimeStamp.ReadOnly = true;
-            // 
-            // packetsBindingSource
-            // 
-            this.packetsBindingSource.DataMember = "Packets";
-            this.packetsBindingSource.DataSource = this.filterResultsBindingSource;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 164);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(876, 120);
-            this.textBox1.TabIndex = 2;
-            // 
-            // filterControl
-            // 
-            this.filterControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filterControl.Location = new System.Drawing.Point(3, 3);
-            this.filterControl.MaximumSize = new System.Drawing.Size(0, 30);
-            this.filterControl.MinimumSize = new System.Drawing.Size(300, 30);
-            this.filterControl.Name = "filterControl";
-            this.filterControl.Size = new System.Drawing.Size(876, 30);
-            this.filterControl.TabIndex = 0;
             // 
             // sourceAdressDataGridViewTextBoxColumn
             // 
@@ -194,37 +186,50 @@ namespace PcapVisualizer.UI
             this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
             this.lengthDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // filterResultsBindingSource
+            // _packetsBindingSource
             // 
-            this.filterResultsBindingSource.DataSource = typeof(PcapVisualizer.Presentation.ResultPacketsViewModel);
+            this._packetsBindingSource.DataMember = "Packets";
+            this._packetsBindingSource.DataSource = this._filterResultsBindingSource;
+            // 
+            // _headerTextBox
+            // 
+            this._headerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._filterResultsBindingSource, "CurrentHeader", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this._headerTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._headerTextBox.Location = new System.Drawing.Point(3, 164);
+            this._headerTextBox.Multiline = true;
+            this._headerTextBox.Name = "_headerTextBox";
+            this._headerTextBox.ReadOnly = true;
+            this._headerTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._headerTextBox.Size = new System.Drawing.Size(876, 120);
+            this._headerTextBox.TabIndex = 2;
             // 
             // PcapVisualizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 414);
-            this.Controls.Add(this.visualizerLayout);
+            this.Controls.Add(this._visualizerLayout);
             this.MinimumSize = new System.Drawing.Size(900, 400);
             this.Name = "PcapVisualizerForm";
             this.Text = "PcapVisualizerForm";
-            this.visualizerLayout.ResumeLayout(false);
-            this.visualizerLayout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.packegesDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.packetsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filterResultsBindingSource)).EndInit();
+            this._visualizerLayout.ResumeLayout(false);
+            this._visualizerLayout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._filterResultsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._packetsDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._packetsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel visualizerLayout;
-        private FilterControl filterControl;
-        private System.Windows.Forms.DataGridView packegesDataGrid;
-        private System.Windows.Forms.BindingSource filterResultsBindingSource;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.BindingSource packetsBindingSource;
+        private System.Windows.Forms.TableLayoutPanel _visualizerLayout;
+        private FilterControl _filterControl;
+        private System.Windows.Forms.DataGridView _packetsDataGrid;
+        private System.Windows.Forms.BindingSource _filterResultsBindingSource;
+        private System.Windows.Forms.TextBox _dataTextBox;
+        private System.Windows.Forms.TextBox _headerTextBox;
+        private System.Windows.Forms.BindingSource _packetsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourceAdressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourcePortDataGridViewTextBoxColumn;
@@ -232,6 +237,5 @@ namespace PcapVisualizer.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationPortDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lengthDataGridViewTextBoxColumn;
-
     }
 }

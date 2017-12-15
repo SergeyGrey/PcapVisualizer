@@ -11,8 +11,14 @@ using PcapVisualizer.Presentation;
 
 namespace PcapVisualizer.UI
 {
+    /// <summary>
+    /// Форма визуализатора
+    /// </summary>
     public partial class PcapVisualizerForm : Form, IVisualizerView
     {
+        /// <summary>
+        /// Конструктор по умолчанию
+        /// </summary>
         public PcapVisualizerForm()
         {
             InitializeComponent();
@@ -25,8 +31,8 @@ namespace PcapVisualizer.UI
         [Browsable(false)]
         public ResultPacketsViewModel ViewModel
         {
-            get { return (ResultPacketsViewModel)filterResultsBindingSource.DataSource; }
-            set { filterResultsBindingSource.DataSource = value; }
+            get { return (ResultPacketsViewModel)_filterResultsBindingSource.DataSource; }
+            set { _filterResultsBindingSource.DataSource = value; }
         }
 
         /// <summary>
@@ -39,7 +45,21 @@ namespace PcapVisualizer.UI
         /// </summary>
         private void CustomInitializeComponent()
         {
-            ControlView = filterControl;
+            ControlView = _filterControl;
+            _packetsDataGrid.SelectionChanged += SetHeaderAndData;
+        }
+
+        /// <summary>
+        /// Сообщает модели, что был выбран элемент в списке пакетов
+        /// </summary>
+        /// <param name="obj">не используется</param>
+        /// <param name="args">не испоьзуется</param>
+        private void SetHeaderAndData(object obj, EventArgs args)
+        {
+            if (_packetsDataGrid.CurrentRow == null)
+                return;
+
+            ViewModel.UpdateHeaderAndData(new SelectedItemInList(){ ItemPosition = _packetsDataGrid.CurrentRow.Index });
         }
     }
 }

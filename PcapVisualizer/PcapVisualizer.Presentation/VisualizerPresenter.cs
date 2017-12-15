@@ -1,21 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace PcapVisualizer.Presentation
 {
+    /// <summary>
+    /// Презентер визуализатора
+    /// </summary>
     public class VisualizerPresenter
     {
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="view">Вид визуализатора</param>
+        /// <param name="presenter">Презентер контроллера параметров фильтрации</param>
         public VisualizerPresenter(IVisualizerView view, FilterParametersPresenter presenter)
         {
             View = view;
             FilterParametersPresenter = presenter;
 
             View.ViewModel = new ResultPacketsViewModel();
+
+            FilterParametersPresenter.View.FileChosen += View.ControlView.ViewModel.ResetProtocol;
             FilterParametersPresenter.View.FileChosen += View.ViewModel.Parse;
+            FilterParametersPresenter.View.FileChosen += View.ControlView.ViewModel.SetSelectedFile;
+            FilterParametersPresenter.View.ViewModel.FilterChanged += View.ViewModel.Filter;
         }
 
         /// <summary>

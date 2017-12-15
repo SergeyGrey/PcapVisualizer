@@ -58,7 +58,7 @@ namespace PcapVisualizer.Model.Parsers
                                 EthernetDatagram ethernet = packet.Ethernet;
 
                                 // common fields
-                                myPacket.Protocol = "ETHERNET";
+                                myPacket.Protocol = "Ethernet";
                                 myPacket.SourceAdress = ip.Source.ToString();
                                 myPacket.SourcePort = tcp.SourcePort.ToString();
                                 myPacket.DestinationAddress = ip.Destination.ToString();

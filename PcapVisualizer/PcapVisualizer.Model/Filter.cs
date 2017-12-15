@@ -32,7 +32,7 @@ namespace PcapVisualizer.Model
             if (state == ProtocolState.TCP)
                 return "TCP";
 
-            return "Ethernet";
+            return "UDP";
         }
     }
 }
