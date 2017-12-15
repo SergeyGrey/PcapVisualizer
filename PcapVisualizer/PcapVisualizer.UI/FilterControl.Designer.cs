@@ -65,7 +65,7 @@ namespace PcapVisualizer.UI
             // 
             // _filterParametersBindingSource
             // 
-            this._filterParametersBindingSource.DataSource = typeof(FilterParametersViewModel);
+            this._filterParametersBindingSource.DataSource = new FilterParametersViewModel();
             // 
             // _pcapFilePathLabel
             // 
