@@ -76,7 +76,7 @@
     <Compile Include="IVisualizerView.cs" />
     <Compile Include="PacketViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultPacketsViewModel.cs" />
+    <Compile Include="VisualizerViewModel.cs" />
     <Compile Include="SelectedItemInList.cs" />
     <Compile Include="VisualizerPresenter.cs" />
   </ItemGroup>

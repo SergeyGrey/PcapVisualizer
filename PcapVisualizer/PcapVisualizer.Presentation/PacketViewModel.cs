@@ -9,6 +9,7 @@ namespace PcapVisualizer.Presentation
     /// <summary>
     /// Модель отображаемого пакета
     /// </summary>
+    [Serializable]
     public class PacketViewModel : Packet
     {
         /// <summary>

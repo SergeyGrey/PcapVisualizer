@@ -21,7 +21,7 @@ namespace PcapVisualizer.Presentation
             View = view;
             FilterParametersPresenter = presenter;
 
-            View.ViewModel = new ResultPacketsViewModel();
+            View.ViewModel = new VisualizerViewModel();
 
             FilterParametersPresenter.View.FileChosen += View.ControlView.ViewModel.ResetProtocol;
             FilterParametersPresenter.View.FileChosen += View.ViewModel.Parse;
@@ -43,7 +43,7 @@ namespace PcapVisualizer.Presentation
         /// Инициализирует модель представления
         /// </summary>
         /// <param name="viewModel">Модель</param>
-        public void Initialize(ResultPacketsViewModel viewModel)
+        public void Initialize(VisualizerViewModel viewModel)
         {
             View.ViewModel = viewModel;
         }

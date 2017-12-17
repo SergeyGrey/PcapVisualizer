@@ -13,7 +13,7 @@ namespace PcapVisualizer.Presentation
         /// <summary>
         /// Модель вида
         /// </summary>
-        ResultPacketsViewModel ViewModel { get; set; }
+        VisualizerViewModel ViewModel { get; set; }
 
         /// <summary>
         /// Вид контроллера

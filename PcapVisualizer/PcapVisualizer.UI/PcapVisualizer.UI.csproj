@@ -7,8 +7,8 @@
     <ProjectGuid>{FE701DD9-80DE-41E7-BE65-9ADA4F62F8EA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PcapVisualizer.UI</RootNamespace>
-    <AssemblyName>PcapVisualizer.UI</AssemblyName>
+    <RootNamespace>PcapVisualizer</RootNamespace>
+    <AssemblyName>PcapVisualizer</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -115,7 +115,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\PcapVisualizer.Presentation.FilterParametersViewModel.datasource" />
     <None Include="Properties\DataSources\PcapVisualizer.Presentation.ResultPacketsViewModel.datasource" />

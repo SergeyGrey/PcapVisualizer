@@ -37,7 +37,7 @@ namespace PcapVisualizer.UI
             this._pcapFilePathLabel = new System.Windows.Forms.Label();
             this._browseButton = new System.Windows.Forms.Button();
             this._filterLayout = new System.Windows.Forms.TableLayoutPanel();
-            this._protocolSelectionComboBox = new SmallComboBox();
+            this._protocolSelectionComboBox = new PcapVisualizer.UI.SmallComboBox();
             ((System.ComponentModel.ISupportInitialize)(this._filterParametersBindingSource)).BeginInit();
             this._filterLayout.SuspendLayout();
             this.SuspendLayout();
@@ -54,24 +54,23 @@ namespace PcapVisualizer.UI
             // 
             // _pcapFilePathTextbox
             // 
-            this._pcapFilePathTextbox.BackColor = System.Drawing.SystemColors.Window;
             this._pcapFilePathTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._filterParametersBindingSource, "SelectedFile", true));
             this._pcapFilePathTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._pcapFilePathTextbox.Location = new System.Drawing.Point(118, 3);
+            this._pcapFilePathTextbox.Location = new System.Drawing.Point(108, 3);
             this._pcapFilePathTextbox.Name = "_pcapFilePathTextbox";
             this._pcapFilePathTextbox.ReadOnly = true;
-            this._pcapFilePathTextbox.Size = new System.Drawing.Size(149, 22);
+            this._pcapFilePathTextbox.Size = new System.Drawing.Size(174, 22);
             this._pcapFilePathTextbox.TabIndex = 2;
             // 
             // _filterParametersBindingSource
             // 
-            this._filterParametersBindingSource.DataSource = new FilterParametersViewModel();
+            this._filterParametersBindingSource.DataSource = typeof(PcapVisualizer.Presentation.FilterParametersViewModel);
             // 
             // _pcapFilePathLabel
             // 
-            this._pcapFilePathLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this._pcapFilePathLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._pcapFilePathLabel.AutoSize = true;
-            this._pcapFilePathLabel.Location = new System.Drawing.Point(15, 6);
+            this._pcapFilePathLabel.Location = new System.Drawing.Point(3, 6);
             this._pcapFilePathLabel.Name = "_pcapFilePathLabel";
             this._pcapFilePathLabel.Size = new System.Drawing.Size(97, 17);
             this._pcapFilePathLabel.TabIndex = 1;
@@ -79,33 +78,27 @@ namespace PcapVisualizer.UI
             // 
             // _browseButton
             // 
-            this._browseButton.BackColor = System.Drawing.SystemColors.Window;
-            this._browseButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this._browseButton.FlatAppearance.BorderSize = 0;
-            this._browseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this._browseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this._browseButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this._browseButton.Location = new System.Drawing.Point(273, 3);
+            this._browseButton.Location = new System.Drawing.Point(288, 3);
             this._browseButton.Name = "_browseButton";
             this._browseButton.Size = new System.Drawing.Size(74, 23);
             this._browseButton.TabIndex = 3;
             this._browseButton.Text = "browse";
-            this._browseButton.UseVisualStyleBackColor = false;
+            this._browseButton.UseVisualStyleBackColor = true;
             this._browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // _filterLayout
             // 
             this._filterLayout.ColumnCount = 5;
-            this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this._filterLayout.Controls.Add(this._browseButton, 2, 0);
             this._filterLayout.Controls.Add(this._pcapFilePathTextbox, 1, 0);
             this._filterLayout.Controls.Add(this._selectProtocolLabel, 3, 0);
-            this._filterLayout.Controls.Add(this._protocolSelectionComboBox, 4, 0);
             this._filterLayout.Controls.Add(this._pcapFilePathLabel, 0, 0);
+            this._filterLayout.Controls.Add(this._protocolSelectionComboBox, 4, 0);
             this._filterLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this._filterLayout.Location = new System.Drawing.Point(0, 0);
             this._filterLayout.Name = "_filterLayout";
@@ -116,10 +109,8 @@ namespace PcapVisualizer.UI
             // 
             // _protocolSelectionComboBox
             // 
-            this._protocolSelectionComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this._protocolSelectionComboBox.DataBindings.Add(new System.Windows.Forms.Binding("MySelectedIndex", this._filterParametersBindingSource, "SelectedProtocolState", true));
             this._protocolSelectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._protocolSelectionComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this._protocolSelectionComboBox.FormattingEnabled = true;
             this._protocolSelectionComboBox.Items.AddRange(new object[] {
             "All",
@@ -138,7 +129,6 @@ namespace PcapVisualizer.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.Controls.Add(this._filterLayout);
             this.MaximumSize = new System.Drawing.Size(0, 30);
             this.MinimumSize = new System.Drawing.Size(600, 30);

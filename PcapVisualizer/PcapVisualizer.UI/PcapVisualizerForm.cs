@@ -29,9 +29,9 @@ namespace PcapVisualizer.UI
         /// Получает или задает модель вывода результатов поиска
         /// </summary>
         [Browsable(false)]
-        public ResultPacketsViewModel ViewModel
+        public VisualizerViewModel ViewModel
         {
-            get { return (ResultPacketsViewModel)_filterResultsBindingSource.DataSource; }
+            get { return (VisualizerViewModel)_filterResultsBindingSource.DataSource; }
             set { _filterResultsBindingSource.DataSource = value; }
         }
 
