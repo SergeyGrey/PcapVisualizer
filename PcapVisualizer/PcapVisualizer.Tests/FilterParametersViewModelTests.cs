@@ -10,17 +10,26 @@ using PcapVisualizer.Presentation;
 
 namespace PcapVisualizer.Tests
 {
+    /// <summary>
+    /// Тестирование работы подели параметров фильтра
+    /// </summary>
     [TestFixture]
     class FilterParametersViewModelTests
     {
         private FilterParametersViewModel _model;
 
+        /// <summary>
+        /// Иинициализация до тестов
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
             _model = new FilterParametersViewModel();
         }
 
+        /// <summary>
+        /// Проверка обновления свойства выбранного файла
+        /// </summary>
         [Test]
         public void SetFileTest()
         {
@@ -28,6 +37,9 @@ namespace PcapVisualizer.Tests
             Assert.That(_model.SelectedFile, Is.EqualTo("filepath"));
         }
         
+        /// <summary>
+        /// Проверка усатновки значения выбранного протокола
+        /// </summary>
         [Test]
         public void SetAndGetprotocolTests()
         {
@@ -39,6 +51,9 @@ namespace PcapVisualizer.Tests
             Assert.That(_model.SelectedProtocolState, Is.EqualTo((int)ProtocolState.All));
         }
 
+        /// <summary>
+        /// Проверка события изменения протокола
+        /// </summary>
         [Test]
         public void FilterStateChangedTest()
         {

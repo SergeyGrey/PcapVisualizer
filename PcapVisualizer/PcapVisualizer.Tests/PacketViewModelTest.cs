@@ -9,9 +9,15 @@ using PcapVisualizer.Presentation;
 
 namespace PcapVisualizer.Tests
 {
+    /// <summary>
+    /// Тестирование модели пакета
+    /// </summary>
     [TestFixture]
     class PacketViewModelTests
     {
+        /// <summary>
+        /// Проверка инициализации модели пакета
+        /// </summary>
         [Test]
         public void InitTest()
         {

@@ -10,17 +10,26 @@ using PcapVisualizer.Presentation;
 
 namespace PcapVisualizer.Tests
 {
+    /// <summary>
+    /// Тестирование модели визуализатора
+    /// </summary>
     [TestFixture]
     class VisualizerViewModelTests
     {
         private VisualizerViewModel _model;
 
+        /// <summary>
+        /// Инициализация до тестов
+        /// </summary>
         [SetUp]
         public void SetUp()
         {
             _model = new VisualizerViewModel();
         }
-
+        
+        /// <summary>
+        /// Проверка обновления отображаемого списка пакетов
+        /// </summary>
         [Test]
         public void PacketListTest()
         {
@@ -42,6 +51,9 @@ namespace PcapVisualizer.Tests
             Assert.True(visualStateUpdated);
         }
 
+        /// <summary>
+        /// Проверка обновления полей заголовка и данных при смене выбранного индекса пакета
+        /// </summary>
         [Test]
         public void HeaderAndDataTest()
         {
@@ -56,6 +68,9 @@ namespace PcapVisualizer.Tests
             Assert.That(_model.CurrentHeader, Is.EqualTo(packet.Header));
         }
 
+        /// <summary>
+        /// Проверка работы функций парсинга нового файла и фильтрации
+        /// </summary>
         [Test]
         public void FilterAndParseTest()
         {
