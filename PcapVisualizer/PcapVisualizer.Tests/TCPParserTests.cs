@@ -19,7 +19,7 @@ namespace PcapVisualizer.Tests
         {
            TcpParser parser = new TcpParser();
 
-           var result = parser.ParsePcapFile(@"../../../TestFiles/test.pcap");
+           var result = parser.ParsePcapFile(@"../../../../TestFiles/test.pcap");
 
             // Common properties
             Assert.That(result[0].Protocol, Is.EqualTo("TCP"));

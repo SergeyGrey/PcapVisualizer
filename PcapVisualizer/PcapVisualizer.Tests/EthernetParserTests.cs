@@ -20,10 +20,10 @@ namespace PcapVisualizer.Tests
         {
             EthernetParser parser = new EthernetParser();
 
-            var result = parser.ParsePcapFile(@"../../../TestFiles/test.pcap");
+            var result = parser.ParsePcapFile(@"../../../../TestFiles/test.pcap");
 
             // Common properties
-            Assert.That(result[0].Protocol, Is.EqualTo("ETHERNET"));
+            Assert.That(result[0].Protocol, Is.EqualTo("Ethernet"));
             Assert.That(result[0].Length, Is.EqualTo(42));
             Assert.That(result[0].DestinationAddress, Is.EqualTo("43.1.0.0"));
             Assert.That(result[0].DestinationPort, Is.EqualTo("2048"));

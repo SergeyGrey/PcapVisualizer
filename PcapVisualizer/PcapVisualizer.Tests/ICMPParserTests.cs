@@ -19,7 +19,7 @@ namespace PcapVisualizer.Tests
         {
             ICMPParser parser = new ICMPParser();
 
-            var result = parser.ParsePcapFile(@"../../../TestFiles/icmp.pcap");
+            var result = parser.ParsePcapFile(@"../../../../TestFiles/icmp.pcap");
 
             // Common properties
             Assert.That(result[0].Protocol, Is.EqualTo("ICMP"));

@@ -52,12 +52,13 @@ namespace PcapVisualizer.Model.Parsers
                                     IpV4Datagram ip = packet.Ethernet.IpV4;
                                     TcpDatagram tcp = ip.Tcp;
 
-                                    // Так определяется http
-                                    if (tcp.DestinationPort != 80 && tcp.SourcePort != 80)
-                                        continue;
-
                                     var http = packet.IpV4.Tcp.Http;
                                     var httpHeader = packet.IpV4.Tcp.Http.Header;
+
+
+                                    
+                                    if (!http.IsValid)
+                                        continue;
 
                                     // common fields
                                     myPacket.Protocol = "HTTP";
@@ -74,19 +75,23 @@ namespace PcapVisualizer.Model.Parsers
                                     StringBuilder properties = new StringBuilder();
 
                                     // Длинна заголовков
-                                   // properties.AppendLine("HeaderLength : " + httpHeader.BytesLength.ToString());
-                                    // Длинна контента
-                                  //  properties.AppendLine("ContentLength : " + httpHeader.ContentLength);
-                                    // Тип контента
-                                 //   properties.AppendLine("ContentType : " + httpHeader.ContentType);
-                                    // Поле передачи
-                                  //  properties.AppendLine("ContentType : " + httpHeader.Trailer.ValueString);
-                                    // Шифрование
-                                  //  properties.AppendLine("TransferEncoding : " + httpHeader.TransferEncoding.ValueString);
+                                    if (httpHeader != null)
+                                    {
+                                        properties.AppendLine("HeaderLength : " + httpHeader.BytesLength.ToString());
+                                        // Длинна контента
+                                        properties.AppendLine("ContentLength : " + httpHeader.ContentLength);
+                                        // Тип контента
+                                        properties.AppendLine("ContentType : " + httpHeader.ContentType);
+                                        // Поле передачи
+                                        properties.AppendLine("ContentType : " + httpHeader.Trailer.ValueString);
+                                        // Шифрования
+                                        properties.AppendLine("TransferEncoding : " +
+                                                              httpHeader.TransferEncoding.ValueString);
+                                    }
 
                                     if (http.IsRequest && http.IsValid)
                                     {
-                                        string message = http.Decode(Encoding.UTF8).Split('\n')[0];
+                                        string message = http.Decode(Encoding.ASCII);
                                         if (message.StartsWith("GET "))
                                         {
                                             properties.AppendLine("PacketType : " + "Get");

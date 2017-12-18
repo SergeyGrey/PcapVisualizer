@@ -17,7 +17,7 @@ namespace PcapVisualizer.Tests
         [TestCase]
         public void ParseTest()
         {
-            var result = PcapParser.ParsePcapFile("../../../TestFiles/test.pcap");
+            var result = PcapParser.ParsePcapFile("../../../../TestFiles/test.pcap");
 
             Assert.That(result.Count, Is.EqualTo(151));
         }

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using NUnit.Framework;
 using PcapVisualizer.Model;
 using PcapVisualizer.Presentation;
@@ -74,8 +71,8 @@ namespace PcapVisualizer.Tests
         [Test]
         public void FilterAndParseTest()
         {
-            string filepath = ""; //пусть к файлу для обработки
-            Assert.That(() => _model.Parse(null, ""), Throws.Exception);
+            Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
+            string filepath = "../../../../TestFiles/test.pcap";
 
             bool listChanged = false;
 
@@ -91,6 +88,7 @@ namespace PcapVisualizer.Tests
             Assert.That(_model.Packets, Is.EqualTo(list));
 
             _model.Filter(null, new FilterParameters());
+            _model.Parse(null, filepath);
 
             Assert.True(listChanged);
         }
