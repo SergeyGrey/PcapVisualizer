@@ -46,9 +46,9 @@ namespace PcapVisualizer.UI
             // 
             this._selectProtocolLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this._selectProtocolLabel.AutoSize = true;
-            this._selectProtocolLabel.Location = new System.Drawing.Point(373, 6);
+            this._selectProtocolLabel.Location = new System.Drawing.Point(365, 6);
             this._selectProtocolLabel.Name = "_selectProtocolLabel";
-            this._selectProtocolLabel.Size = new System.Drawing.Size(104, 17);
+            this._selectProtocolLabel.Size = new System.Drawing.Size(115, 17);
             this._selectProtocolLabel.TabIndex = 1;
             this._selectProtocolLabel.Text = "select protocol:";
             // 
@@ -92,7 +92,7 @@ namespace PcapVisualizer.UI
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
-            this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this._filterLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this._filterLayout.Controls.Add(this._browseButton, 2, 0);
             this._filterLayout.Controls.Add(this._pcapFilePathTextbox, 1, 0);
