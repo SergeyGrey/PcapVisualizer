@@ -26,7 +26,7 @@ namespace PcapVisualizer.Tests
             Assert.That(result[0].Length, Is.EqualTo(145));
             Assert.That(result[0].DestinationAddress, Is.EqualTo("95.27.46.98"));
             Assert.That(result[0].DestinationPort, Is.EqualTo("58595"));
-            Assert.That(result[0].SourceAdress, Is.EqualTo("192.168.43.156"));
+            Assert.That(result[0].SourceAddress, Is.EqualTo("192.168.43.156"));
             Assert.That(result[0].SourcePort, Is.EqualTo("60734"));
             Assert.That(result[0].TimeStamp.ToString("yyyy-MM-dd"), Is.EqualTo("2017-11-23"));
 

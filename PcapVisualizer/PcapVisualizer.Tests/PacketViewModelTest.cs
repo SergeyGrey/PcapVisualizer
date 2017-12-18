@@ -29,7 +29,7 @@ namespace PcapVisualizer.Tests
             Assert.That(model.Header, Is.EqualTo(packet.Header));
             Assert.That(model.DestinationAddress, Is.EqualTo(packet.DestinationAddress));
             Assert.That(model.DestinationPort, Is.EqualTo(packet.DestinationPort));
-            Assert.That(model.SourceAdress, Is.EqualTo(packet.SourceAdress));
+            Assert.That(model.SourceAddress, Is.EqualTo(packet.SourceAddress));
             Assert.That(model.SourcePort, Is.EqualTo(packet.SourcePort));
             Assert.That(model.Length, Is.EqualTo(packet.Length.ToString()));
             Assert.That(model.TimeStamp, Is.EqualTo(packet.TimeStamp.ToString()));
@@ -46,7 +46,7 @@ namespace PcapVisualizer.Tests
                 DestinationPort = "0",
                 Header = "header",
                 Length = 11,
-                SourceAdress = "22.22",
+                SourceAddress = "22.22",
                 SourcePort = "1",
                 TimeStamp = new DateTime(20, 10, 11)
             };

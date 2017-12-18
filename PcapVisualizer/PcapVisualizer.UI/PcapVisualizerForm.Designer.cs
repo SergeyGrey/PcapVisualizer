@@ -37,7 +37,7 @@ namespace PcapVisualizer.UI
             this._filterControl = new PcapVisualizer.UI.FilterControl();
             this._packetsDataGrid = new System.Windows.Forms.DataGridView();
             this.TimeStamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceAdressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sourcePortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.protocolDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.destinationAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,7 +106,7 @@ namespace PcapVisualizer.UI
             this._packetsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._packetsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TimeStamp,
-            this.sourceAdressDataGridViewTextBoxColumn,
+            this.sourceAddressDataGridViewTextBoxColumn,
             this.sourcePortDataGridViewTextBoxColumn,
             this.protocolDataGridViewTextBoxColumn,
             this.destinationAddressDataGridViewTextBoxColumn,
@@ -133,14 +133,14 @@ namespace PcapVisualizer.UI
             this.TimeStamp.Name = "TimeStamp";
             this.TimeStamp.ReadOnly = true;
             // 
-            // sourceAdressDataGridViewTextBoxColumn
+            // sourceAddressDataGridViewTextBoxColumn
             // 
-            this.sourceAdressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sourceAdressDataGridViewTextBoxColumn.DataPropertyName = "SourceAdress";
-            this.sourceAdressDataGridViewTextBoxColumn.HeaderText = "Source adress";
-            this.sourceAdressDataGridViewTextBoxColumn.MinimumWidth = 50;
-            this.sourceAdressDataGridViewTextBoxColumn.Name = "sourceAdressDataGridViewTextBoxColumn";
-            this.sourceAdressDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sourceAddressDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sourceAddressDataGridViewTextBoxColumn.DataPropertyName = "SourceAddress";
+            this.sourceAddressDataGridViewTextBoxColumn.HeaderText = "Source address";
+            this.sourceAddressDataGridViewTextBoxColumn.MinimumWidth = 50;
+            this.sourceAddressDataGridViewTextBoxColumn.Name = "sourceAddressDataGridViewTextBoxColumn";
+            this.sourceAddressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // sourcePortDataGridViewTextBoxColumn
             // 
@@ -233,7 +233,7 @@ namespace PcapVisualizer.UI
         private System.Windows.Forms.TextBox _headerTextBox;
         private System.Windows.Forms.BindingSource _packetsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeStamp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sourceAdressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sourceAddressDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourcePortDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn protocolDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationAddressDataGridViewTextBoxColumn;

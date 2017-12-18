@@ -59,7 +59,7 @@ namespace PcapVisualizer.Model.Parsers
 
                                 // common fields
                                 myPacket.Protocol = "Ethernet";
-                                myPacket.SourceAdress = ip.Source.ToString();
+                                myPacket.SourceAddress = ip.Source.ToString();
                                 myPacket.SourcePort = tcp.SourcePort.ToString();
                                 myPacket.DestinationAddress = ip.Destination.ToString();
                                 myPacket.DestinationPort = tcp.DestinationPort.ToString();
@@ -72,7 +72,7 @@ namespace PcapVisualizer.Model.Parsers
                                 StringBuilder properties = new StringBuilder();
 
                                 // MAC адресс получателя
-                                properties.AppendLine("MAC adress of destination : " + ethernet.Destination.ToString());
+                                properties.AppendLine("MAC address of destination : " + ethernet.Destination.ToString());
                                 // 
                                 properties.AppendLine("EtherType : " + ethernet.EtherType.ToString());
                                 // Длинна заголовков
@@ -80,7 +80,7 @@ namespace PcapVisualizer.Model.Parsers
                                 // Длинна полезной загрузки
                                 properties.AppendLine("PayloadLength : " + ethernet.PayloadLength.ToString());
                                 // MAC адресс отправителя
-                                properties.AppendLine("Source Mac adress : " + ethernet.Source.ToString());
+                                properties.AppendLine("Source Mac address : " + ethernet.Source.ToString());
 
                                 myPacket.Header = properties.ToString();
 
