@@ -103,7 +103,7 @@ namespace PcapVisualizer.Tests
                 DestinationPort = "0",
                 Header = "header",
                 Length = 11,
-                SourceAdress = "22.22",
+                SourceAddress = "22.22",
                 SourcePort = "1",
                 TimeStamp = new DateTime(20, 10, 11)
             };

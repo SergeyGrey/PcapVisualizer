@@ -29,9 +29,9 @@ namespace PcapVisualizer.Presentation
         }
 
         [DisplayName(@"Source adress")]
-        public new string SourceAdress
+        public new string SourceAddress
         {
-            get { return Packet.SourceAdress; }
+            get { return Packet.SourceAddress; }
         }
 
         [DisplayName(@"Source port")]

@@ -55,7 +55,7 @@ namespace PcapVisualizer.Model.Parsers
 
                                 // common fields
                                 myPacket.Protocol = "TCP";
-                                myPacket.SourceAdress = ip.Source.ToString();
+                                myPacket.SourceAddress = ip.Source.ToString();
                                 myPacket.SourcePort = tcp.SourcePort.ToString();
                                 myPacket.DestinationAddress = ip.Destination.ToString();
                                 myPacket.DestinationPort = tcp.DestinationPort.ToString();

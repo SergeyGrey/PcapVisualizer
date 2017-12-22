@@ -53,7 +53,7 @@ namespace PcapVisualizer.Model.Parsers
 
                                     // common fields
                                     myPacket.Protocol = "ICMP";
-                                    myPacket.SourceAdress = ip.Source.ToString();
+                                    myPacket.SourceAddress = ip.Source.ToString();
                                     myPacket.SourcePort = ip.Udp.SourcePort.ToString();
                                     myPacket.DestinationAddress = ip.Destination.ToString();
                                     myPacket.DestinationPort = ip.Udp.DestinationPort.ToString();
