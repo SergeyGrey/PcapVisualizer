@@ -18,7 +18,7 @@ namespace PcapVisualizer.Model.Parsers
             // открытие файла для парсинга
             using (PacketCommunicator communicator =
                 selectedDevice.Open(65536, // считает полностью весь пакет 65536 max size of packet
-                    PacketDeviceOpenAttributes.Promiscuous, // какие - то непонятные флаги)
+                    PacketDeviceOpenAttributes.Promiscuous, //  флаг
                     1000)) // время чтения
             {
                 // Установка фильтра на udp Пакеты

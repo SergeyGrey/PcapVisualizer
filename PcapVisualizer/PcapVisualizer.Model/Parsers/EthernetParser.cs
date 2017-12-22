@@ -50,8 +50,6 @@ namespace PcapVisualizer.Model.Parsers
 
                             case PacketCommunicatorReceiveResult.Ok:
                             {
-                                //if (packet.IpV4.Protocol != IpV4Protocol.EtherIp)
-                                //    continue;
 
                                 IpV4Datagram ip = packet.Ethernet.IpV4;
                                 TcpDatagram tcp = ip.Tcp;

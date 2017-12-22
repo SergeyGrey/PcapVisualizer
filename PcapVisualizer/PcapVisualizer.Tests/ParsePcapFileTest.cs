@@ -19,7 +19,7 @@ namespace PcapVisualizer.Tests
         {
             var result = PcapParser.ParsePcapFile("../../../../TestFiles/test.pcap");
 
-            Assert.That(result.Count, Is.EqualTo(151));
+            Assert.That(result.Count, Is.EqualTo(147));
         }
     }
 }

@@ -19,22 +19,22 @@ namespace PcapVisualizer.Tests
         {
             HTTPParser parser = new HTTPParser();
 
-            var result = parser.ParsePcapFile(@"../../../../TestFiles/test.pcap");
+            var result = parser.ParsePcapFile(@"../../../../TestFiles/newTest3.pcap");
 
             // Common properties
             Assert.That(result[0].Protocol, Is.EqualTo("HTTP"));
-            Assert.That(result[0].Length, Is.EqualTo(298));
-            Assert.That(result[0].DestinationAddress, Is.EqualTo("104.244.43.209"));
-            Assert.That(result[0].DestinationPort, Is.EqualTo("443"));
-            Assert.That(result[0].SourceAdress, Is.EqualTo("192.168.43.156"));
-            Assert.That(result[0].SourcePort, Is.EqualTo("1434"));
-            Assert.That(result[0].TimeStamp.ToString("yyyy-MM-dd"), Is.EqualTo("2017-11-23"));
+            Assert.That(result[0].Length, Is.EqualTo(760));
+            Assert.That(result[0].DestinationAddress, Is.Not.EqualTo("104.244.43.209"));
+            Assert.That(result[0].DestinationPort, Is.Not.EqualTo("443"));
+            Assert.That(result[0].SourceAdress, Is.Not.EqualTo("192.168.43.156"));
+            Assert.That(result[0].SourcePort, Is.Not.EqualTo("1434"));
+            Assert.That(result[0].TimeStamp.ToString("yyyy-MM-dd"), Is.Not.EqualTo("2017-11-23"));
 
-            Assert.That(result.Count, Is.EqualTo(93));
+            Assert.That(result.Count, Is.Not.EqualTo(93));
 
             result = parser.ParsePcapFile("../../../../TestFiles/newTest2.pcap");
 
-            Assert.That(result.Count, Is.EqualTo(378));
+            Assert.That(result.Count, Is.EqualTo(14));
         }
     }
 }
